@@ -8,7 +8,7 @@ form.addEventListener('submit',e=>{
     validInputs();
 });
 
-const setError= (element,message)=>{
+const setError = (element,message)=>{
     const input=element.parentElement;
     const error=input.querySelector('.error')
     error.textContent=message;
@@ -30,28 +30,33 @@ const validEmail=email=>{
 const validInputs = () =>{
     const nameValue=name1.value.trim();
     const emailValue=email.value.trim();
-    const passwoedValue=password.value.trim();
+    const passwordValue=password.value.trim();
 
     if(nameValue===''){
         setError(name1,'Name is Required')
+        name1.style.border="2px solid red";
     }
     else{
         setSuccees(name1)
     }
     if(emailValue===''){
         setError(email,'Email is Required')
+        email.style.border="2px solid red";
     }
     else if (!validEmail(emailValue)) {
         setError(email,'Email is Required')
+        email.style.border="2px solid red";
     }
     else{
         setSuccees(email)
     }
     if (passwordValue==='') {
         setError(password,'password is Required')
+        password.style.border="2px solid red";
     }
     else if(passwordValue.length<10){
         setError(password,'password must be greater or equal to 10 length')
+        password.style.border="2px solid red";
     }
     else{
         setSuccees(password)
